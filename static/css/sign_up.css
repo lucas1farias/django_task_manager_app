@@ -1,0 +1,28 @@
+
+
+body {
+    background-color: #171A21;
+    font-family: consolas;
+}
+
+h1 {
+    color: aqua;
+}
+
+/*Linha abaixo do texto "Criar conta"*/
+hr {
+    background-color: aqua;
+    height: 3px;
+    box-shadow: 0 0 50px aqua;
+    border-radius: 10px;
+}
+
+/*Interior dos inputs*/
+.form-control {
+    background-color: #222;
+}
+
+/*COR DA CAIXA NO INTERIOR DOS INPUTS QUANDO CLICADO DENTRO*/
+.form-control:focus {
+    background-color: #171A21;
+}

@@ -1,0 +1,26 @@
+
+
+body {
+    background-color: #222;
+    font-family: consolas;
+}
+
+/*Linha abaixo do texto "Olá, acesse suas tarefas abaixo!"*/
+.hr-custom {
+    background-color: cyan;
+    height: 3px;
+    box-shadow: 0 0 50px cyan;
+    border-radius: 10px;
+}
+
+.hr-custom-not-logged {
+    background-color: gray;
+    height: 3px;
+    box-shadow: 0 0 50px gray;
+    border-radius: 10px;
+}
+
+.logged {
+    text-shadow: 0 0 15px aqua;
+    color: aqua;
+}

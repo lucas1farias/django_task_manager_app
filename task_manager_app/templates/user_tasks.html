@@ -1,0 +1,63 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Suas tarefas</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../../static/css/user_tasks.css">
+{% endblock %}
+
+{% block body %}
+    {% include 'menu.html' %}
+
+    <div class="container mt-5 text-center">
+        <!-- Não há tarefas/objetos no modelo de tarefas "Task" -->
+        {% if user_tasks|length == 0 %}
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="no-tasks">{{ request.user.username }}, você não adicionou alguma tarefa!</h2>
+                    <hr class="glowing-bar-task-exists-not">
+                </div>
+            </div>
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- 1: Criar uma tarefa -->
+                    <a class="btn btn-primary mb-4" href="{% url 'create-task' %}">Adicionar a primeira tarefa</a>
+                </div>
+            </div>
+
+        <!-- Há tarefas/objetos no modelo de tarefas "Task" -->
+        {% else %}
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="tasks mt-3">Tarefas de {{ request.user.username }}</h2>
+                    <hr class="glowing-bar-task-exists">
+                </div>
+            </div>
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- 2: Continuar criando tarefa -->
+                    <a class="btn btn-primary mb-4" href="{% url 'create-task' %}">Adicionar nova tarefa</a>
+                </div>
+            </div>
+
+            {% include 'tasks_table.html' %}
+
+        {% endif %}
+    </div>
+
+    {% include 'pagination.html' %}
+
+    <script type="text/javascript" src="../../static/js/user_tasks.js"></script>
+{% endblock %}

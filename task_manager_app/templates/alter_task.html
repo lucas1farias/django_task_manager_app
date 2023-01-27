@@ -1,0 +1,58 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Editar tarefa</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../../static/css/alter_task.css">
+{% endblock %}
+
+{% block body %}
+    {% include 'return_to_tasks.html' %}
+
+    <div class="container">
+
+        <!-- Célula -->
+        <div class="row ">
+            <div class="col-12 mb-5 mt-5 text-center">
+                <h2>Editar tarefa</h2><hr>
+            </div>
+        </div>
+
+        <!-- Célula -->
+        <div class="row ">
+            <div class="col-12 text-center">
+                <p class="text-center text-warning">Editar tarefa: <span class="btn btn-warning">{{ object }}</span></p>
+            </div>
+        </div>
+
+        <form autocomplete="off" method="post">
+            {% csrf_token %}
+            <label class="sr-only" for="task">Editar uma tarefa existente</label>
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 text-center">
+                    <input type="text" class="form-control mb-2" id="task" name="task" min="3" max="100" placeholder="Reescreva a nova tarefa aqui" required>
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <input class="btn btn-primary" type="submit" value="Salvar">
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="../../static/js/alter_task.js"></script>
+{% endblock %}

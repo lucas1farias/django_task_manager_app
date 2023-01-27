@@ -1,0 +1,18 @@
+
+
+body {
+    background-color: #171A21;
+    font-family: consolas;
+}
+
+h2 {
+    color: salmon;
+    text-shadow: 0 0 10px salmon;
+}
+
+hr {
+    background-color: salmon;
+    height: 3px;
+    box-shadow: 0 0 50px salmon;
+    border-radius: 10px;
+}

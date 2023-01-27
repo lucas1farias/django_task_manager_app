@@ -1,0 +1,84 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Página Inicial</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../../static/css/index.css">
+{% endblock %}
+
+{% block body %}
+
+    <!-- Quando não há ou há um usuário, mas está deslogado -->
+    {% if request.user.is_anonymous == True %}
+        <div class="container mt-5 text-center">
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-secondary">Você está anônimo</h2>
+                    <hr class="hr-custom-not-logged">
+                    <p class="text-secondary">Para acessar o site, crie uma conta.</p>
+                </div>
+            </div>
+
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-4"></div>
+
+                <div class="col-2">
+                    <!-- 1: Criar uma conta -->
+                    <a class="btn btn-primary" href="{% url 'sign-up' %}">Criar conta</a>
+                </div>
+
+                <div class="col-2">
+                    <!-- 3: Entrar numa conta -->
+                    <a class="btn btn-success" href="{% url 'sign-in' %}">Entrar/Login</a>
+                </div>
+
+                <div class="col-4"></div>
+            </div>
+        </div>
+
+    <!-- Quando há um usuário criado e logado -->
+    {% else %}
+
+        <div class="container">
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="logged text-center mt-2">Menu do usuário</h2>
+                    <hr class="hr-custom">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-flex mt-1">
+            <!-- Célula -->
+            <div class="row">
+                <div class="col-3"></div>
+
+                <div class="col-2">
+                    <span class="btn btn-dark">Conta: {{ user }}</span>
+                </div>
+
+                <div class="col-2">
+                    <!-- 4: Ver tarefas da conta -->
+                    <a class="btn btn-info" href="{% url 'user-tasks' %}">Tarefas de {{ user }}</a>
+                </div>
+
+                <div class="col-2">
+                    <!-- 2: Sair de uma conta -->
+                    <a class="btn btn-danger" href="{% url 'sign-out' %}">Sair/Logout</a>
+                </div>
+
+                <div class="col-3"></div>
+            </div>
+        </div>
+    {% endif %}
+    <!--.................................................... /1 ....................................................-->
+
+    <script type="text/javascript" src="../../static/js/index.js"></script>
+{% endblock %}

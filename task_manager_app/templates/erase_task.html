@@ -1,0 +1,43 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Remover tarefa</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="../../static/css/erase_task.css">
+{% endblock %}
+
+{% block body %}
+    {% include 'return_to_tasks.html' %}
+
+    <div class="container">
+
+        <!-- Célula 1 -->
+        <div class="row ">
+            <div class="col-12 mb-5 mt-5 text-center text-danger">
+                <h2>Remover tarefa</h2><hr>
+            </div>
+        </div>
+
+        <form autocomplete="off" method="post">
+            {% csrf_token %}
+
+            <!-- Célula 2 -->
+            <div class="row ">
+                <div class="col-12 text-center">
+                    <span class="text-danger">Tarefa a ser removida: </span>
+                    <span class="text-warning">{{ object }}</span>
+                    <input class="btn btn-danger" type="submit" value="Sim">
+                    <a class="btn btn-primary" href="{% url 'user-tasks' %}">Cancelar</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script type="text/javascript" src="../../static/js/erase_task.js"></script>
+{% endblock %}

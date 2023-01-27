@@ -1,0 +1,29 @@
+
+
+body {
+    background-color: #222;
+}
+
+.glowing-bar-task-exists {
+    background-color: mediumseagreen;
+    height: 3px;
+    box-shadow: 0 0 50px mediumseagreen;
+    border-radius: 10px;
+}
+
+.glowing-bar-task-exists-not {
+    background-color: red;
+    height: 3px;
+    box-shadow: 0 0 50px red;
+    border-radius: 10px;
+}
+
+.no-tasks {
+    text-shadow: 0 0 10px red;
+    color: red;
+}
+
+.tasks {
+    text-shadow: 0 0 10px mediumseagreen;
+    color: mediumseagreen;
+}
